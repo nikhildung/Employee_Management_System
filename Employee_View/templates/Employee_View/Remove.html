@@ -1,0 +1,16 @@
+{% extends './Home_Page.html' %}
+
+{% block Title%} Remove Page {% endblock%}
+{% block Content%}
+<br>
+<h2>Remove An Employee!</h2>
+<form action="/Remove" method="post">
+    {% csrf_token %}
+    <label for="first_name">First Name</label><br>
+    <input type="text"    name="first_name"><br>
+    <label for="last_name">Last Name</label> <br>
+    <input type="text" name="last_name" ><br>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

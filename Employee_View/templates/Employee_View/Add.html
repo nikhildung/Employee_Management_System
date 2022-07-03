@@ -1,0 +1,66 @@
+{% extends './Home_Page.html' %}
+
+
+{% block Title%} Add Page {% endblock%}
+
+{% block Content%}
+<br>
+<h2>Add an Employee!</h2>
+<br>
+
+
+<form action="/Add" method="post">
+    {% csrf_token %}
+
+    <label for="first_name">First Name</label><br>
+    <input type="text" id="first_name" name="first_name"><br>
+    <br>
+
+    <label for="last_name">Last Name</label><br>
+    <input type="text" id="last_name" name="last_name"><br>
+    <br>
+
+    <label for="salary">Salary</label><br>
+    <input type="number" id="salary" name="salary"><br>
+    <br>
+
+    <label for="bonus">Bonus</label><br>
+    <input type="number" id="bonus" name="bonus"><br>
+    <br>
+
+    <label>Department</label><br>
+    <input type='number' name="department">
+    <select>
+        <option></option>
+        {% for i in dept %}
+        <option name="department" value="{{ i }}">{{i.id}} - {{ i }}</option>
+        {% endfor %}
+
+    </select>
+    <br>
+    <br>
+
+    <label>Role</label><br>
+    <input type="number" name="role">
+    <select>
+
+        <option></option>
+        {% for i in role %}
+        <option name="role">{{ i.id }} - {{ i }}</option>
+        {% endfor %}
+
+    </select>
+    <br>
+    <br>
+
+    <label for="phone">Phone Number</label><br>
+    <input type="number" id="phone" name="phone"><br>
+    <br>
+
+    <label for="hire_date">Hire_Date</label><br>
+    <input type="text" id="hire_date" name="hire_date"><br>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
